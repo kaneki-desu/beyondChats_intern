@@ -1,4 +1,4 @@
-asyncpraw
+praw
 dotenv
 tiktoken
 pandas
