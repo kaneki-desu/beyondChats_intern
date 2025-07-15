@@ -1,0 +1,6 @@
+praw
+dotenv
+tiktoken
+pandas
+phidata
+groq
