@@ -10,6 +10,7 @@ origins = [
     "http://localhost:3000",  # Next.js frontend
     "http://127.0.0.1:3000",  # In case it's using 127.0.0.1
     "https://beyondchats-4ps0llc36-kaneki-desus-projects.vercel.app/",
+    "https://beyondchats-web.vercel.app",
     "beyondchats-web.vercel.app"
 ]
 app.add_middleware(
