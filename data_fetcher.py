@@ -17,7 +17,7 @@ def fetch_user_metadata(user):
         "trophies": ", ".join([t.name for t in user.trophies()])
     }
     return metadata
-def fetch_user_posts(user, limit=50):
+def fetch_user_posts(user, limit=150):
     posts_data = []
     for post in user.submissions.new(limit=limit):
         posts_data.append({
