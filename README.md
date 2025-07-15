@@ -46,6 +46,9 @@ Access the API at `http://127.0.0.1:8000`.
    - `REDDIT_CLIENT_ID`
    - `REDDIT_SECRET`
    - `GROQ_API_KEY`
+REDDIT_CLIENT_ID:Get this from Reddit's Developer Portal. It uniquely identifies your Reddit app.
+REDDIT_SECRET:This is the secret key that Reddit gives you alongside your client ID. 
+GROQ_API_KEY:This is your API key for using the Groq API. It allows you to access their LLMs like LLaMA-3 for personality analysis.
 
 ## Notes
 - Use `main2.py` for local text storage and persona extraction.
