@@ -18,7 +18,19 @@ def split_into_chunks(posts, comments, max_chunk_tokens=5500):
 
     print(f"[DEBUG] Total chunks formed: {len(chunks)}")
     return chunks
+def split_into_final_chunks(content,max_chunk_tokens=5500):
+    enc = tiktoken.encoding_for_model("gpt-3.5-turbo")  # still fine for LLaMA approximation
+    full_text = content
+    tokens = enc.encode(full_text)
 
+    chunks = []
+    for i in range(0, len(tokens), max_chunk_tokens):
+        chunk_tokens = tokens[i:i + max_chunk_tokens]
+        chunk_text = enc.decode(chunk_tokens)
+        chunks.append(chunk_text)
+
+    print(f"[DEBUG] Total chunks formed: {len(chunks)}")
+    return chunks
 # Generate persona in chunks
 async def generate_persona_with_groq(posts, comments,meta_data):
     chunks = split_into_chunks(posts, comments)
@@ -50,7 +62,8 @@ async def generate_persona_with_groq(posts, comments,meta_data):
         ### Metadata:{meta_data}
         The insights taken from previous passed chunks are:{full_persona}"""
     print("[+] Generating user persona...")
-    Users_Info = await Reddit_Personality_agent.arun(final_prompt)
+    final_chunks=split_into_final_chunks(final_prompt,4800)
+    Users_Info = await Reddit_Personality_agent.arun(final_chunks[0])
     return Users_Info.content
 async def convert_persona_to_json(markdown_persona: str):
     json_prompt = """

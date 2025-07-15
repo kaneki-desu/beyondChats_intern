@@ -16,4 +16,4 @@ async def main(username):
     print(f"Saved to {username}_persona.txt")
 
 if __name__ == "__main__":
-    asyncio.run(main("Hungry-move-6603"))
+    asyncio.run(main(username))
