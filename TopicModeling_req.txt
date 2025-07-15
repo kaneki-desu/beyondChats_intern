@@ -1,0 +1,16 @@
+pandas
+nltk
+detoxify
+nrclex
+torch
+matplotlib
+seaborn
+wordcloud
+bertopic
+umap-learn
+sentence-transformers
+praw
+dotenv
+phidata
+groq
+tiktoken
