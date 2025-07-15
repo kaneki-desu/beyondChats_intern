@@ -49,7 +49,6 @@ def fetch_user_dataframes(username):
     metadata = fetch_user_metadata(user)
     posts = fetch_user_posts(user)
     comments = fetch_user_comments(user)
-    
     meta_df = pd.DataFrame([metadata])
     activity_df = pd.DataFrame(posts + comments)
     
@@ -61,4 +60,5 @@ def fetch_user_data(username):
     posts = activity_df[activity_df['type'] == 'post'].to_dict(orient='records')
     comments = activity_df[activity_df['type'] == 'comment'].to_dict(orient='records')
     achievements = activity_df[activity_df['type'] == 'achievement']['title'].tolist()
-    return posts, comments, achievements, meta_df , activity_df
+    meta_data = str(meta_df.to_dict(orient='records')[0])
+    return posts, comments, achievements,meta_data, meta_df , activity_df

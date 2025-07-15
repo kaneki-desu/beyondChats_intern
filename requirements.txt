@@ -1,6 +1,8 @@
-praw
+asyncpraw
 dotenv
 tiktoken
 pandas
 phidata
 groq
+uvicorn
+fastapi

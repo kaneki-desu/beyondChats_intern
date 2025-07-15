@@ -26,7 +26,7 @@ Reddit_JSON_Formatter_Agent = Agent(
         "Ensure correct JSON syntax. Include null where information is missing.",
         "Always include keys like age, location, tier, archetype, even if null.",
         "Mention the ids of a post or comments, even if they are slightly useful in taking users insights",
-        "More the ids, merrier"
+        "More the ids, merrier. IDs of posts and comments are valuable"
     ],
     show_tools_calls=False,
     markdown=False
