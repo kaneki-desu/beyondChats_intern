@@ -57,7 +57,8 @@ async def convert_persona_to_json(markdown_persona: str):
     You will be given a user persona written in markdown with section headings such as Biodata, Motivations, Personality, etc.
     In "AI_insigts", you explain how you got the corresponding attributes details and they must contain ids of those posts or comments.
     Each AI_insights must be back by the post id's . If you are guessing some attributes , write how you guessed it in AI_insights if possible with ids.
-    You can add new attributes in personality , motivation
+    You can add new attributes in personality , motivation.
+    Please double-check each word , each commas, each bracket ,each literals and characters before giving the final output as it gets difficult to debug in frontend
     Example template:
     {
       "persona": {
@@ -71,12 +72,12 @@ async def convert_persona_to_json(markdown_persona: str):
           "Marital_Status": "Single",
           "Tier": "Early Adopters",
           "archetype": "The Creator",
-          "AI_insights": "In Comment `id='t1_mvt4t5c'`, Lucas mentioned managing a content calendar and writing for digital platforms, suggesting his role as a Content Manager. In Post `id='t3_j9x4z2'`, he shared a photo of his neighborhood in London and referenced commuting pre-lockdown."
+          "AI_insights": "In Comment id='t1_mvt4t5c', Lucas mentioned managing a content calendar and writing for digital platforms, suggesting his role as a Content Manager. In Post id='t3_j9x4z2', he shared a photo of his neighborhood in London and referenced commuting pre-lockdown."
         },
         "quote": "I want to spend less time ordering a healthy takeaway and more time enjoying my meal.",
         "traits": {
           "content": ["Practical", "Adaptable", "Spontaneous", "Active"],
-          "AI_insights": "These traits are inferred from Post `id='t3_j9fdg1'` where Lucas shares how he adapted to a healthier lifestyle with HIIT. His spontaneity is seen in Comment `id='t1_mvu6n4k'` when he mentions randomly trying a new cuisine."
+          "AI_insights": "These traits are inferred from Post id='t3_j9fdg1' where Lucas shares how he adapted to a healthier lifestyle with HIIT. His spontaneity is seen in Comment id='t1_mvu6n4k' when he mentions randomly trying a new cuisine."
         },
         "motivations": {
           "content": [
@@ -87,7 +88,7 @@ async def convert_persona_to_json(markdown_persona: str):
             {"Comfort": 0.50},
             {"Dietary Needs": 0.95}
           ],
-          "AI_insights": "Post `id='t3_j9fdg1'` discusses Lucas wanting healthy meals that are quick to order. Comment `id='t1_mvti9qp'` highlights his concern over ingredients due to dietary restrictions."
+          "AI_insights": "Post id='t3_j9fdg1' discusses Lucas wanting healthy meals that are quick to order. Comment id='t1_mvti9qp' highlights his concern over ingredients due to dietary restrictions."
         },
         "personality": {
           "content": [
@@ -112,7 +113,7 @@ async def convert_persona_to_json(markdown_persona: str):
               "fraction_high": 0.15
             }
           ],
-          "AI_insights": "Lucas exhibits extroverted and sensing tendencies based on Comment `id='t1_mvtf0u2'` where he talks about leading team Zoom calls and reacting based on daily events. His logical analysis of menu options in `t1_mvtr2kl` implies a thinking-over-feeling tendency."
+          "AI_insights": "Lucas exhibits extroverted and sensing tendencies based on Comment id='t1_mvtf0u2' where he talks about leading team Zoom calls and reacting based on daily events. His logical analysis of menu options in t1_mvtr2kl implies a thinking-over-feeling tendency."
         },
         "behaviors_habits": {
           "content": [
@@ -122,14 +123,14 @@ async def convert_persona_to_json(markdown_persona: str):
             "Lucas works from home during the lockdown and finds it hard to balance work and his newfound healthy lifestyle.",
             "He orders a takeaway at least 3 times a week, and is always looking for new healthy options."
           ],
-          "AI_insights": "Comments `id='t1_mvtg2qf'`, `t1_mvth1xn`, and Post `id='t3_j9z9mx'` refer to Lucas' home-based lifestyle, online workouts, and reliance on food delivery platforms like UberEats and Deliveroo."
+          "AI_insights": "Comments id='t1_mvtg2qf', t1_mvth1xn, and Post id='t3_j9z9mx' refer to Lucas' home-based lifestyle, online workouts, and reliance on food delivery platforms like UberEats and Deliveroo."
         },
         "goals_needs": {
           "content": [
             "To enjoy a healthy diet and lifestyle during lockdown",
             "To help all the information, he needs to select a healthy takeaway meal"
           ],
-          "AI_insights": "Comment `id='t1_mvth9ax'` clearly states 'I’m trying to eat better but it's hard to tell which takeout is actually healthy.' Post `id='t3_j9z1b8'` includes his weekly HIIT tracking goal."
+          "AI_insights": "Comment id='t1_mvth9ax' clearly states 'I’m trying to eat better but it's hard to tell which takeout is actually healthy.' Post id='t3_j9z1b8' includes his weekly HIIT tracking goal."
         },
         "pain_points": {
           "content": [
@@ -137,21 +138,21 @@ async def convert_persona_to_json(markdown_persona: str):
             "Can't find a category for healthy meals on the cuisine section",
             "Pain point #2"
           ],
-          "AI_insights": "Comment `id='t1_mvtk6d3'` says 'Why do half the menus have no pics? I end up Googling half the items!' and `id='t1_mvtl9sn'` states 'Wish there was just a Healthy tab instead of guessing by name.'"
+          "AI_insights": "Comment id='t1_mvtk6d3' says 'Why do half the menus have no pics? I end up Googling half the items!' and id='t1_mvtl9sn' states 'Wish there was just a Healthy tab instead of guessing by name.'"
         },
         "tools_technology": {
           "content": [
             "Tool or tech #1",
             "Tool or tech #2"
           ],
-          "AI_insights": "Lucas mentioned using apps like MyFitnessPal (Comment `id='t1_mvtqd1n'`) and Fitbit (Comment `id='t1_mvtqxe7'`) to track meals and exercise."
+          "AI_insights": "Lucas mentioned using apps like MyFitnessPal (Comment id='t1_mvtqd1n') and Fitbit (Comment id='t1_mvtqxe7') to track meals and exercise."
         }
       }
     }
 
     Use the following format as a schema:
 
-    ```json
+    #json
     {{
       "persona": {{
         "reddit_username": "{username}",
